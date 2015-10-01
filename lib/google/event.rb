@@ -78,6 +78,10 @@ module Google
       @start_date = Event.parse_date(date)
     end
 
+    def end_date=(date)
+      @end_date = Event.parse_date(date)
+    end
+
     #
     # Sets the start time of the Event.  Must be a Time object or a parse-able string representation of a time.
     #
