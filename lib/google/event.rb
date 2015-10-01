@@ -92,7 +92,6 @@ module Google
     #   * end_date=(date)
     #
     def start_date
-      @start_date ||= Date.today
       (@start_date.is_a? String) ? @start_date: @start_date.xmlschema
     end
 
@@ -101,12 +100,11 @@ module Google
     end
 
     def end_date
-      end_date ||= Date.today
+      (@end_date.is_a? String) ? @end_date: @end_date.xmlschema
     end
 
     def end_date=(date)
       @end_date = Event.parse_date(date)
-      (@end_date.is_a? String) ? @end_date: @end_date.xmlschema
     end
 
     #
@@ -297,14 +295,10 @@ module Google
         \"description\": \"#{description}\",
         \"location\": \"#{location}\",
         \"start\": {
-          \"date\": \"#{start_date}\",
-          \"dateTime\": \"#{start_time}\"
-          #{timezone_needed? ? local_timezone_json : ''}
+          \"date\": \"#{start_date}\"
         },
         \"end\": {
-          \"date\": \"#{end_date}\",
-          \"dateTime\": \"#{end_time}\"
-          #{timezone_needed? ? local_timezone_json : ''}
+          \"date\": \"#{end_date}\"
         },
         #{recurrence_json}
         #{color_json}
