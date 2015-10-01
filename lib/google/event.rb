@@ -262,10 +262,12 @@ module Google
         \"description\": \"#{description}\",
         \"location\": \"#{location}\",
         \"start\": {
+          \"date\": \"#{start_date}\",
           \"dateTime\": \"#{start_time}\"
           #{timezone_needed? ? local_timezone_json : ''}
         },
         \"end\": {
+          \"date\": \"#{end_date}\",
           \"dateTime\": \"#{end_time}\"
           #{timezone_needed? ? local_timezone_json : ''}
         },
