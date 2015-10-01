@@ -74,8 +74,33 @@ module Google
       @id = Event.parse_id(id) unless id.nil?
     end
 
+    #
+    # Modifications from Giang.
+    #
+    # In order to be able to set proper all-day events.
+    #
+    # Instead of just 24 hour long event, we have a real all-day event
+    # which is marked as all-day in the Google Calendar UI.
+    #
+    # New attributes: start_date, end_date
+    #
+    # New methods:
+    #
+    #   * start_date
+    #   * start_date=(date)
+    #   * end_date
+    #   * end_date=(date)
+    #
+    def start_date
+      @start_date ||= Date.today
+    end
+
     def start_date=(date)
       @start_date = Event.parse_date(date)
+    end
+
+    def end_date
+      end_date ||= Date.today
     end
 
     def end_date=(date)
