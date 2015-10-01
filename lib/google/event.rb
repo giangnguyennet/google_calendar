@@ -57,7 +57,7 @@ module Google
     # event.extendedProperties = {'shared' => {'custom_str' => 'some custom string'}}
     #
     def initialize(params = {})
-      [:id, :status, :raw, :html_link, :title, :location, :calendar, :quickadd, :attendees, :description, :reminders, :recurrence, :start_time, :end_time, :color_id, :extended_properties].each do |attribute|
+      [:id, :status, :raw, :html_link, :title, :location, :calendar, :quickadd, :attendees, :description, :reminders, :recurrence, :start_time, :end_time, :color_id, :extended_properties, :start_date, :end_date].each do |attribute|
         instance_variable_set("@#{attribute}", params[attribute])
       end
 
