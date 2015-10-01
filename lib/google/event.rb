@@ -74,6 +74,10 @@ module Google
       @id = Event.parse_id(id) unless id.nil?
     end
 
+    def start_date=(date)
+      @start_date = Event.parse_date(date)
+    end
+
     #
     # Sets the start time of the Event.  Must be a Time object or a parse-able string representation of a time.
     #
@@ -479,6 +483,11 @@ module Google
     def self.parse_time(time) #:nodoc
       raise ArgumentError, "Start Time must be either Time or String" unless (time.is_a?(String) || time.is_a?(Time))
       (time.is_a? String) ? Time.parse(time) : time.dup.utc
+    end
+
+    def self.parse_date(date) #:nodoc
+      raise ArgumentError, "Start Date must be either Date or String" unless (date.is_a?(String) || date.is_a?(Date))
+      (date.is_a? String) ? Date.parse(date) : date.dup.utc
     end
 
     #
