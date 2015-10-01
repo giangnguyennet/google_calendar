@@ -93,6 +93,7 @@ module Google
     #
     def start_date
       @start_date ||= Date.today
+      (@start_date.is_a? String) ? @start_date: @start_date.xmlschema
     end
 
     def start_date=(date)
@@ -105,6 +106,7 @@ module Google
 
     def end_date=(date)
       @end_date = Event.parse_date(date)
+      (@end_date.is_a? String) ? @end_date: @end_date.xmlschema
     end
 
     #
