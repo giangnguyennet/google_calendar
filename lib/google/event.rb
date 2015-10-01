@@ -92,7 +92,7 @@ module Google
     #   * end_date=(date)
     #
     def start_date
-      (@start_date.is_a? String) ? @start_date: @start_date.xmlschema
+      @start_date
     end
 
     def start_date=(date)
@@ -100,7 +100,7 @@ module Google
     end
 
     def end_date
-      (@end_date.is_a? String) ? @end_date: @end_date.xmlschema
+      @end_date
     end
 
     def end_date=(date)
