@@ -487,7 +487,7 @@ module Google
 
     def self.parse_date(date) #:nodoc
       raise ArgumentError, "Start Date must be either Date or String" unless (date.is_a?(String) || date.is_a?(Date))
-      (date.is_a? String) ? Date.parse(date) : date.dup.utc
+      (date.is_a? String) ? Date.parse(date) : date.dup
     end
 
     #
